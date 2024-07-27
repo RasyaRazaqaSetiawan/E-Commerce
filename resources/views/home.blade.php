@@ -14,22 +14,6 @@
                         </div>
                     @endif
 
-                    @if (auth()->check())
-                        @if (auth()->user()->status == 'admin')
-                            <div class="alert alert-info" role="alert">
-                                Ini halaman admin.
-                            </div>
-                        @elseif (auth()->user()->status == 'user')
-                            <div class="alert alert-info" role="alert">
-                                Ini halaman user.
-                            </div>
-                        @endif
-                    @else
-                        <div class="alert alert-warning" role="alert">
-                            Anda belum login.
-                        </div>
-                    @endif
-                    
                     {{ __('You are logged in!') }}
                 </div>
             </div>

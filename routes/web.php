@@ -1,22 +1,26 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\Status;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', function () {
     return view('home');
 })->middleware('auth');
 
-Route::get('/admin', function () {
-    return view('admin'); // Atau pesan "Ini halaman admin"
-})->middleware('admin');
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('admin', [AdminController::class, 'index'])->name('admin.dashboard');
+});
 
 Route::get('/user', function () {
-    return view('user'); // Atau pesan "Ini halaman user"
+    return view('user');
 })->middleware('user');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
