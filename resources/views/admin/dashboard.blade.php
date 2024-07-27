@@ -45,7 +45,8 @@
                 <h6 class="fw-semibold mb-0">Dashboard</h6>
                 <ul class="d-flex align-items-center gap-2">
                     <li class="fw-medium">
-                        <a href="index.html" class="d-flex align-items-center gap-1 hover-text-primary">
+                        <a href="{{ route('admin.dashboard') }}"
+                            class="d-flex align-items-center gap-1 hover-text-primary">
                             <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
                             Dashboard
                         </a>
@@ -920,16 +921,7 @@
 
         </div>
 
-        <footer class="d-footer">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-auto">
-                    <p class="mb-0">© 2024 WowDash. All Rights Reserved.</p>
-                </div>
-                <div class="col-auto">
-                    <p class="mb-0">Made by <span class="text-primary-600">wowtheme7</span></p>
-                </div>
-            </div>
-        </footer>
+        @include('include.backend.footer')
     </main>
 
     <!-- jQuery library js -->

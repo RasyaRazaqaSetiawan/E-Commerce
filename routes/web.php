@@ -14,7 +14,7 @@ Route::get('/home', function () {
 })->middleware('auth');
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('admin', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 
 Route::get('/user', function () {
