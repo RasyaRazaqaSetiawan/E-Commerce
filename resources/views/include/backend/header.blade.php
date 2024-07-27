@@ -20,145 +20,6 @@
             <div class="d-flex flex-wrap align-items-center gap-3">
                 <button type="button" data-theme-toggle
                     class="w-40-px h-40-px bg-neutral-200 rounded-circle d-flex justify-content-center align-items-center"></button>
-                <div class="dropdown d-none d-sm-inline-block">
-                    <button
-                        class="has-indicator w-40-px h-40-px bg-neutral-200 rounded-circle d-flex justify-content-center align-items-center"
-                        type="button" data-bs-toggle="dropdown">
-                        <img src="assets/images/lang-flag.png" alt="image"
-                            class="w-24 h-24 object-fit-cover rounded-circle">
-                    </button>
-                    <div class="dropdown-menu to-top dropdown-menu-sm">
-                        <div
-                            class="py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2">
-                            <div>
-                                <h6 class="text-lg text-primary-light fw-semibold mb-0">Choose Your Language
-                                </h6>
-                            </div>
-                        </div>
-
-                        <div class="max-h-400-px overflow-y-auto scroll-sm pe-8">
-                            <div
-                                class="form-check style-check d-flex align-items-center justify-content-between mb-16">
-                                <label class="form-check-label line-height-1 fw-medium text-secondary-light"
-                                    for="english">
-                                    <span
-                                        class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
-                                        <img src="assets/images/flags/flag1.png" alt=""
-                                            class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
-                                        <span class="text-md fw-semibold mb-0">English</span>
-                                    </span>
-                                </label>
-                                <input class="form-check-input" type="radio" name="crypto"
-                                    id="english">
-                            </div>
-
-                            <div
-                                class="form-check style-check d-flex align-items-center justify-content-between mb-16">
-                                <label class="form-check-label line-height-1 fw-medium text-secondary-light"
-                                    for="japan">
-                                    <span
-                                        class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
-                                        <img src="assets/images/flags/flag2.png" alt=""
-                                            class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
-                                        <span class="text-md fw-semibold mb-0">Japan</span>
-                                    </span>
-                                </label>
-                                <input class="form-check-input" type="radio" name="crypto"
-                                    id="japan">
-                            </div>
-
-                            <div
-                                class="form-check style-check d-flex align-items-center justify-content-between mb-16">
-                                <label class="form-check-label line-height-1 fw-medium text-secondary-light"
-                                    for="france">
-                                    <span
-                                        class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
-                                        <img src="assets/images/flags/flag3.png" alt=""
-                                            class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
-                                        <span class="text-md fw-semibold mb-0">France</span>
-                                    </span>
-                                </label>
-                                <input class="form-check-input" type="radio" name="crypto"
-                                    id="france">
-                            </div>
-
-                            <div
-                                class="form-check style-check d-flex align-items-center justify-content-between mb-16">
-                                <label class="form-check-label line-height-1 fw-medium text-secondary-light"
-                                    for="germany">
-                                    <span
-                                        class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
-                                        <img src="assets/images/flags/flag4.png" alt=""
-                                            class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
-                                        <span class="text-md fw-semibold mb-0">Germany</span>
-                                    </span>
-                                </label>
-                                <input class="form-check-input" type="radio" name="crypto"
-                                    id="germany">
-                            </div>
-
-                            <div
-                                class="form-check style-check d-flex align-items-center justify-content-between mb-16">
-                                <label class="form-check-label line-height-1 fw-medium text-secondary-light"
-                                    for="korea">
-                                    <span
-                                        class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
-                                        <img src="assets/images/flags/flag5.png" alt=""
-                                            class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
-                                        <span class="text-md fw-semibold mb-0">South Korea</span>
-                                    </span>
-                                </label>
-                                <input class="form-check-input" type="radio" name="crypto"
-                                    id="korea">
-                            </div>
-
-                            <div
-                                class="form-check style-check d-flex align-items-center justify-content-between mb-16">
-                                <label class="form-check-label line-height-1 fw-medium text-secondary-light"
-                                    for="bangladesh">
-                                    <span
-                                        class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
-                                        <img src="assets/images/flags/flag6.png" alt=""
-                                            class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
-                                        <span class="text-md fw-semibold mb-0">Bangladesh</span>
-                                    </span>
-                                </label>
-                                <input class="form-check-input" type="radio" name="crypto"
-                                    id="bangladesh">
-                            </div>
-
-                            <div
-                                class="form-check style-check d-flex align-items-center justify-content-between mb-16">
-                                <label class="form-check-label line-height-1 fw-medium text-secondary-light"
-                                    for="india">
-                                    <span
-                                        class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
-                                        <img src="assets/images/flags/flag7.png" alt=""
-                                            class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
-                                        <span class="text-md fw-semibold mb-0">India</span>
-                                    </span>
-                                </label>
-                                <input class="form-check-input" type="radio" name="crypto"
-                                    id="india">
-                            </div>
-                            <div
-                                class="form-check style-check d-flex align-items-center justify-content-between">
-                                <label class="form-check-label line-height-1 fw-medium text-secondary-light"
-                                    for="canada">
-                                    <span
-                                        class="text-black hover-bg-transparent hover-text-primary d-flex align-items-center gap-3">
-                                        <img src="assets/images/flags/flag8.png" alt=""
-                                            class="w-36-px h-36-px bg-success-subtle text-success-main rounded-circle flex-shrink-0">
-                                        <span class="text-md fw-semibold mb-0">Canada</span>
-                                    </span>
-                                </label>
-                                <input class="form-check-input" type="radio" name="crypto"
-                                    id="canada">
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- Language dropdown end -->
-
                 <div class="dropdown">
                     <button
                         class="has-indicator w-40-px h-40-px bg-neutral-200 rounded-circle d-flex justify-content-center align-items-center"
@@ -415,15 +276,15 @@
                 <div class="dropdown">
                     <button class="d-flex justify-content-center align-items-center rounded-circle"
                         type="button" data-bs-toggle="dropdown">
-                        <img src="assets/images/user.png" alt="image"
+                        <img src="{{asset('backend/assets/images/user.png')}}" alt="image"
                             class="w-40-px h-40-px object-fit-cover rounded-circle">
                     </button>
                     <div class="dropdown-menu to-top dropdown-menu-sm">
                         <div
                             class="py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2">
                             <div>
-                                <h6 class="text-lg text-primary-light fw-semibold mb-2">Shaidul Islam</h6>
-                                <span class="text-secondary-light fw-medium text-sm">Admin</span>
+                                <h6 class="text-lg text-primary-light fw-semibold mb-2">  {{ Auth::user()->name }}</h6>
+                                <span class="text-secondary-light fw-medium text-sm">  {{ Auth::user()->email }}</span>
                             </div>
                             <button type="button" class="hover-text-danger">
                                 <iconify-icon icon="radix-icons:cross-1" class="icon text-xl"></iconify-icon>
@@ -435,18 +296,6 @@
                                     href="view-profile.html">
                                     <iconify-icon icon="solar:user-linear"
                                         class="icon text-xl"></iconify-icon> My Profile</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3"
-                                    href="email.html">
-                                    <iconify-icon icon="tabler:message-check"
-                                        class="icon text-xl"></iconify-icon> Inbox</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3"
-                                    href="company.html">
-                                    <iconify-icon icon="icon-park-outline:setting-two"
-                                        class="icon text-xl"></iconify-icon> Setting</a>
                             </li>
                             <li>
                                 <a class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-danger d-flex align-items-center gap-3"

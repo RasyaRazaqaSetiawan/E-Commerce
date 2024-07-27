@@ -17,48 +17,40 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li class="sidebar-menu-group-title">Application</li>
-            <li>
-                <a href="email.html">
-                    <iconify-icon icon="mage:email" class="menu-icon"></iconify-icon>
-                    <span>Email</span>
-                </a>
-            </li>
-            <li>
-                <a href="chat-message.html">
-                    <iconify-icon icon="bi:chat-dots" class="menu-icon"></iconify-icon>
-                    <span>Chat</span>
-                </a>
-            </li>
-            <li>
-                <a href="calendar-main.html">
-                    <iconify-icon icon="solar:calendar-outline" class="menu-icon"></iconify-icon>
-                    <span>Calendar</span>
-                </a>
-            </li>
+            <li class="sidebar-menu-group-title">Manage</li>
             <li class="dropdown">
                 <a href="javascript:void(0)">
-                    <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
-                    <span>Invoice</span>
+                    <iconify-icon icon="bi:tags" class="menu-icon"></iconify-icon>
+                    <span>Categories</span>
                 </a>
                 <ul class="sidebar-submenu">
                     <li>
+                        <a href="{{route('categories.index')}}"><i
+                                class="ri-circle-fill circle-icon text-primary-600 w-auto"></i>Categories</a>
+                    </li>
+                    <li>
                         <a href="invoice-list.html"><i
-                                class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> List</a>
-                    </li>
-                    <li>
-                        <a href="invoice-preview.html"><i
-                                class="ri-circle-fill circle-icon text-warning-main w-auto"></i> Preview</a>
-                    </li>
-                    <li>
-                        <a href="invoice-add.html"><i class="ri-circle-fill circle-icon text-info-main w-auto"></i>
-                            Add new</a>
-                    </li>
-                    <li>
-                        <a href="invoice-edit.html"><i
-                                class="ri-circle-fill circle-icon text-danger-main w-auto"></i> Edit</a>
+                                class="ri-circle-fill circle-icon text-warning-600 w-auto"></i> Sub Categories</a>
                     </li>
                 </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <iconify-icon icon="bi:box" class="menu-icon"></iconify-icon>
+                    <span>Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <iconify-icon icon="bi:cart-check" class="menu-icon"></iconify-icon>
+                    <span>Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <iconify-icon icon="bi:people" class="menu-icon"></iconify-icon>
+                    <span>Customers</span>
+                </a>
             </li>
         </ul>
     </div>
