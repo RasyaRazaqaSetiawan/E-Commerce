@@ -3,22 +3,22 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
-class Admin
+class IsAdmin
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->status == 'admin') {
-            return $next($request);
+        if (Auth::check() && Auth::user()->status !== 'admin') {
+            return redirect('/')->with('error', "You don't have admin access.");
         }
-        return redirect('/');
+        return $next($request);
     }
 }

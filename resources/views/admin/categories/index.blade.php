@@ -1,39 +1,5 @@
-<!-- meta tags and other links -->
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wowdash - Bootstrap 5 Admin Dashboard HTML Template</title>
-    <link rel="icon" type="image/png" href="{{ asset('backend/assets/images/favicon.png') }}" sizes="16x16">
-    <!-- remix icon font css  -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/remixicon.css') }}">
-    <!-- BootStrap css -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/lib/bootstrap.min.css') }}">
-    <!-- Apex Chart css -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/lib/apexcharts.css') }}">
-    <!-- Data Table css -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/lib/dataTables.min.css') }}">
-    <!-- Text Editor css -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/lib/editor-katex.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/lib/editor.atom-one-dark.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/lib/editor.quill.snow.css') }}">
-    <!-- Date picker css -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/lib/flatpickr.min.css') }}">
-    <!-- Calendar css -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/lib/full-calendar.css') }}">
-    <!-- Vector Map css -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/lib/jquery-jvectormap-2.0.5.css') }}">
-    <!-- Popup css -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/lib/magnific-popup.css') }}">
-    <!-- Slick Slider css -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/lib/slick.css') }}">
-    <!-- main css -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
-</head>
-
-<body>
+    <!--------------- CSS & JavaScript ------------------>
+    @extends('layouts.backend')
     <!--------------- Backend Sidebar ------------------>
     @include('include.backend.sidebar')
     <main class="dashboard-main">
@@ -53,14 +19,13 @@
                     <li class="fw-medium">Table Categories</li>
                 </ul>
             </div>
-        
+
             <div class="row gy-4">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5 class="card-title mb-0">Tables Categories</h5>
-                            <a href="invoice-add.html" class="btn btn-sm btn-primary-600">
-                                <i class="ri-add-line"></i> Add Data
+                            <a href="{{route('categories.create')}}" class="btn btn-sm btn-primary-600"><i class="ri-add-line"></i> Add Data</a>
                             </a>
                         </div>
                         <div class="card-body">
@@ -69,40 +34,40 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
-                                            <th scope="col">Invoice</th>
                                             <th scope="col">Name</th>
-                                            <th scope="col">Issued Date</th>
-                                            <th scope="col">Amount</th>
-                                            <th scope="col">Status</th>
+                                            <th scope="col">Image</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($categories as $data)
                                         <tr>
-                                            <td>01</td>
-                                            <td><a href="javascript:void(0)" class="text-primary-600">#526534</a></td>
+                                            <td>{{ $loop->index + 1 }}</td>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <h6 class="text-md mb-0 fw-medium flex-grow-1">Kathryn Murphy</h6>
+                                                    <h6 class="text-md mb-0 fw-medium flex-grow-1">{{ $data->name }}</h6>
                                                 </div>
                                             </td>
-                                            <td>25 Jan 2024</td>
-                                            <td>$200.00</td>
                                             <td>
-                                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Paid</span>
+                                                <img src="{{ asset('/images/categories/' . $data->image) }}" alt="{{ $data->name }}" style="max-width: 100px;">
                                             </td>
                                             <td>
-                                                <a href="#" class="w-32-px h-32-px bg-primary-light text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center">
+                                                <a href="{{ route('kategori.show', $data->id) }}" class="w-32-px h-32-px bg-primary-light text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center">
                                                     <iconify-icon icon="iconamoon:eye-light"></iconify-icon>
                                                 </a>
-                                                <a href="#" class="w-32-px h-32-px bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center">
+                                                <a href="{{ route('kategori.edit', $data->id) }}" class="w-32-px h-32-px bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center edit-category-btn" data-id="{{ $data->id }}" data-name="{{ $data->name }}" data-image="{{ asset('/images/categories/' . $data->image) }}" data-bs-toggle="modal" data-bs-target="#categoryModal">
                                                     <iconify-icon icon="lucide:edit"></iconify-icon>
                                                 </a>
-                                                <a href="#" class="w-32-px h-32-px bg-danger-focus text-danger-main rounded-circle d-inline-flex align-items-center justify-content-center">
+                                                <a href="{{ route('kategori.destroy', $data->id) }}" class="w-32-px h-32-px bg-danger-focus text-danger-main rounded-circle d-inline-flex align-items-center justify-content-center" onclick="event.preventDefault(); document.getElementById('destroy-form-{{ $data->id }}').submit();">
                                                     <iconify-icon icon="mingcute:delete-2-line"></iconify-icon>
                                                 </a>
+                                                <form id="destroy-form-{{ $data->id }}" action="{{ route('categories.destroy', $data->id) }}" method="POST" class="d-none">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                </form>
                                             </td>
                                         </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -111,33 +76,14 @@
                 </div>
             </div>
         </div>
-        
+
         <!--------------- Backend Footer ------------------>
         @include('include.backend.footer')
-    </main>
-    <!-- jQuery library js -->
-    <script src="{{ asset('backend/assets/js/lib/jquery-3.7.1.min.js') }}"></script>
-    <!-- Bootstrap js -->
-    <script src="{{ asset('backend/assets/js/lib/bootstrap.bundle.min.js') }}"></script>
-    <!-- Apex Chart js -->
-    <script src="{{ asset('backend/assets/js/lib/apexcharts.min.js') }}"></script>
-    <!-- Data Table js -->
-    <script src="{{ asset('backend/assets/js/lib/dataTables.min.js') }}"></script>
-    <!-- Iconify Font js -->
-    <script src="{{ asset('backend/assets/js/lib/iconify-icon.min.js') }}"></script>
-    <!-- jQuery UI js -->
-    <script src="{{ asset('backend/assets/js/lib/jquery-ui.min.js') }}"></script>
-    <!-- Vector Map js -->
-    <script src="{{ asset('backend/assets/js/lib/jquery-jvectormap-2.0.5.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/lib/jquery-jvectormap-world-mill-en.js') }}"></script>
-    <!-- Popup js -->
-    <script src="{{ asset('backend/assets/js/lib/magnifc-popup.min.js') }}"></script>
-    <!-- Slick Slider js -->
-    <script src="{{ asset('backend/assets/js/lib/slick.min.js') }}"></script>
-    <!-- main js -->
-    <script src="{{ asset('backend/assets/js/app.js') }}"></script>
 
-    <script src="{{ asset('backend/assets/js/homeThreeChart.js') }}"></script>
+
+        <!--------------- Sweet Alert ------------------>
+        @include('sweetalert::alert')
+    </main>
 </body>
 
 </html>

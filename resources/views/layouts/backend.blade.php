@@ -27,8 +27,12 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/css/lib/slick.css') }}">
     <!-- main css -->
     <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
+    <!-- Sweet Alert css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
+    @include('sweetalert::alert')
+    @yield('content')
     <!-- jQuery library js -->
     <script src="{{ asset('backend/assets/js/lib/jquery-3.7.1.min.js') }}"></script>
     <!-- Bootstrap js -->
@@ -50,9 +54,11 @@
     <script src="{{ asset('backend/assets/js/lib/slick.min.js') }}"></script>
     <!-- main js -->
     <script src="{{ asset('backend/assets/js/app.js') }}"></script>
-
+    <!--Chart -->
     <script src="{{ asset('backend/assets/js/homeThreeChart.js') }}"></script>
-
+    <!-- Sweet Alert js -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    @yield('script')
 </body>
 
 </html>

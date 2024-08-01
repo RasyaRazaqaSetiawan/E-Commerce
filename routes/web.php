@@ -1,27 +1,29 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\IsAdmin;
+use App\Http\Controllers\Backend\CategoriesController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware('auth');
-
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::resource('admin/categories', CategoriesController::class);
-});
-
-Route::get('/user', function () {
-    return view('user');
-})->middleware('user');
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/home', function () {
+//     return view('home');
+// })->middleware('auth');
+
+// Route Backend (Admin)
+Route::prefix('admin')->middleware(['auth', IsAdmin::class])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+    //Route Lainnya
+    Route::resource('categories', CategoriesController::class);
+});
+
+

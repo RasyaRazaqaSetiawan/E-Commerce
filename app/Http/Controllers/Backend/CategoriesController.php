@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use App\Models\Categories;
-use App\Http\Middleware\Admin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Middleware\IsAdmin;
+use App\Models\Categories;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoriesController extends Controller
 {
-
     public function __construct()
     {
-        $this->middleware(['auth', Admin::class]);
+        $this->middleware(['auth', IsAdmin::class]);
     }
     /**
      * Display a listing of the resource.
@@ -43,7 +44,7 @@ class CategoriesController extends Controller
         $categories = new Categories;
         $categories->name = $request->input('name');
 
-        //For Image
+        // For Image
         if ($request->hasFile('image')) {
             $img = $request->file('image');
             $name = rand(1000, 9999) . '_' . $img->getClientOriginalName();
@@ -52,13 +53,14 @@ class CategoriesController extends Controller
         }
         $categories->save();
 
-        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
+        Alert::success('Success', 'Category created successfully.');
+        return redirect()->route('categories.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(categories $categories)
+    public function show(Categories $categories)
     {
         return view('admin.categories.show', compact('categories'));
     }
@@ -66,7 +68,7 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(categories $categories)
+    public function edit(Categories $categories)
     {
         return view('admin.categories.edit', compact('categories'));
     }
@@ -74,14 +76,13 @@ class CategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, categories $categories)
+    public function update(Request $request, Categories $categories)
     {
         $request->validate([
             'name' => 'required|string|max:255',
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $categories = new Categories;
         $categories->name = $request->input('name');
 
         // Handle image upload
@@ -94,15 +95,17 @@ class CategoriesController extends Controller
 
         $categories->save();
 
-        return redirect()->route('categories.index')->with('success', 'Categories updated successfully.');
+        Alert::success('Success', 'Category updated successfully.');
+        return redirect()->route('categories.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(categories $categories)
+    public function destroy(Categories $categories)
     {
         $categories->delete();
-        return redirect()->route('categories.index')->with('success', 'Categories deleted successfully.');
+        Alert::success('Success', 'Category deleted successfully.');
+        return redirect()->route('categories.index');
     }
 }
