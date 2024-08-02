@@ -13,9 +13,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::get('/home', function () {
-//     return view('home');
-// })->middleware('auth');
+Route::get('/home', function () {
+    return view('home');
+})->middleware('auth');
 
 // Route Backend (Admin)
 Route::prefix('admin')->middleware(['auth', IsAdmin::class])->group(function () {

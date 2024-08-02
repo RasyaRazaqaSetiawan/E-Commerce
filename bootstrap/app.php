@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'isAdmin' => IsAdmin::class,
+            'admin' => IsAdmin::class,
         ]);
         $middleware->web(append: [
             \RealRashid\SweetAlert\ToSweetAlert::class,
